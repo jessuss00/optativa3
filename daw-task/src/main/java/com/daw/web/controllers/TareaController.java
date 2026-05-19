@@ -69,5 +69,9 @@ public class TareaController {
 	public ResponseEntity<?> completadas() {
 		return ResponseEntity.ok(this.tareaService.completadas());
 	}
+	@PutMapping("/{idTarea}/completar")
+	public ResponseEntity<?> completarTarea(@PathVariable int idTarea) {
+		return ResponseEntity.ok(this.tareaService.marcarCompletada(idTarea));
+	}
 
 }

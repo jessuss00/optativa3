@@ -132,6 +132,17 @@ public class TareaService {
 		return t;
 	}
 	
+	public Tarea marcarCompletada(int idTarea) {
+		Tarea tarea = this.findById(idTarea);
+
+		if (tarea.getEstado().equals(Estado.COMPLETADA)) {
+			throw new TareaException("La tarea ya está completada");
+		}
+
+		tarea.setEstado(Estado.COMPLETADA);
+		return this.tareaRepository.save(tarea);
+	}
+	
 	
 	
 	
